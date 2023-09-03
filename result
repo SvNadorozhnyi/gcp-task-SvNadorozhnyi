@@ -1,0 +1,5 @@
+instance_image_id = "ubuntu-2204-lts"
+instance_network = "development"
+instance_subnet = "development-terra"
+instance_type = "e2-micro"
+instance_zone = "europe-central2-a"

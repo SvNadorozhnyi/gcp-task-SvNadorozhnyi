@@ -6,13 +6,13 @@ variable "project" {
 variable "region" {
   description = "default region to deploy infrastructure"
   type        = string
-  default     = "eu-central-1"
+  default     = "europe-central2"
 }
 
 variable "zone" {
   type        = string
   description = "The availability zone where the instance will be deployed"
-  default     = "europe-central-1a"
+  default     = "europe-central2-a"
 }
 
 variable "network_name" {
@@ -24,7 +24,7 @@ variable "network_name" {
 variable "subnet_name" {
   description = "The name of the subnetwork"
   type        = string
-  default     = "development"
+  default     = "development-terra"
 }
 
 variable "subnet_cidr" {
