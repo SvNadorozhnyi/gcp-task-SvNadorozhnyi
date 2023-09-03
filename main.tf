@@ -28,7 +28,7 @@ resource "google_compute_firewall" "web_server_firewall" {
   }
 
   source_ranges = ["0.0.0.0/0"]
-  target_tags   = [var.network_tags]
+  target_tags   = var.network_tags
 }
 
 # Create a Compute Engine instance with a public IP
@@ -40,7 +40,6 @@ resource "google_compute_instance" "web_server" {
   boot_disk {
     initialize_params {
       image = var.image_family
-      project = var.image_project
     }
   }
 
