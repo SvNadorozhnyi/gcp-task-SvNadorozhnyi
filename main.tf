@@ -50,7 +50,6 @@ resource "google_compute_instance" "web_server" {
 
   boot_disk {
     initialize_params {
-      image_project = var.image_project
       image = var.image_family
     }
   }
