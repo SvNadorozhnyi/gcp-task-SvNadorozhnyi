@@ -27,6 +27,7 @@ resource "google_compute_firewall" "web_server_ingress_firewall" {
   }
 
   source_ranges = ["0.0.0.0/0"]
+  target_tags   = var.environment
 }
 
 resource "google_compute_firewall" "web_server_egress_firewall" {
@@ -40,6 +41,7 @@ resource "google_compute_firewall" "web_server_egress_firewall" {
 
   source_ranges = ["0.0.0.0/0"]
   direction     = "EGRESS"
+  target_tags   = var.environment
 }
 
 resource "google_compute_instance" "web_server" {
