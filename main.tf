@@ -17,16 +17,30 @@ resource "google_compute_subnetwork" "custom_subnet" {
   ip_cidr_range = var.subnet_cidr
 }
 
-# Create a Compute Engine instance
+# Create a firewall rule to allow specific ports
+resource "google_compute_firewall" "web_server_firewall" {
+  name    = "allow-web-server-ports"
+  network = google_compute_network.custom_network.name
+
+  allow {
+    protocol = "tcp"
+    ports    = var.allowed_ports
+  }
+
+  source_ranges = ["0.0.0.0/0"]
+  target_tags   = [var.environment]
+}
+
+# Create a Compute Engine instance with a public IP
 resource "google_compute_instance" "web_server" {
   name         = var.instance_name
   machine_type = var.instance_type
   zone         = var.zone
-  tags         = var.network_tags
-
+  tags         = [var.environment]
   boot_disk {
     initialize_params {
       image = var.image_family
+      project = var.image_project
     }
   }
 
