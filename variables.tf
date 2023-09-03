@@ -24,7 +24,7 @@ variable "network_name" {
 variable "subnet_name" {
   description = "The name of the subnetwork"
   type        = string
-  default     = "development-terra"
+  default     = "development"
 }
 
 variable "subnet_cidr" {
@@ -35,13 +35,7 @@ variable "subnet_cidr" {
 variable "image_family" {
   description = "The family of the VM image for the instance to be launched"
   type        = string
-  default     = "ubuntu-2204-lts"
-}
-
-variable "image_project" {
-  description = "The project of the VM image for the instance to be launched"
-  type        = string
-  default     = "ubuntu-os-cloud"
+  default     = "ubuntu-os-cloud/ubuntu-2204-lts"
 }
 
 variable "instance_name" {
