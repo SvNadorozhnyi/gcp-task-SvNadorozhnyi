@@ -5,7 +5,7 @@ output "instance_public_ip" {
 
 output "instance_image_id" {
   description = "The image ID of the Compute Engine instance"
-  value       = google_compute_instance.web_server.boot_disk.0.initialize_params[0].image
+  value       = google_compute_instance.web_server.boot_disk[0].initialize_params[0].image
 }
 
 output "instance_type" {
